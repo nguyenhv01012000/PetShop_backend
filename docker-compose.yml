@@ -1,0 +1,36 @@
+version: "3.0"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: secret
+      POSTGRES_MULTIPLE_DATABASES: "django-template"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./db_entrypoint.sh:/docker-entrypoint-initdb.d/db_entrypoint.sh
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:1.19
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8000:8000"
+    depends_on:
+      - api
+
+volumes:
+  postgres-data:
+    external: false

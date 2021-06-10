@@ -1,0 +1,72 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver",
+                "0.0.0.0:8000",
+                "--noreload"
+            ],
+            "django": true,
+            "justMyCode": true,
+            "env": {
+                // "AUTHORIZATION_ISSUER": "https://fid.ftech.ai/eclass",
+                "AWS_ACCESS_KEY_ID": "eclass",
+                "AWS_SECRET_ACCESS_KEY": "s3EclassympQQCVpqY",
+                "AWS_STORAGE_BUCKET_NAME": "eclass-prod",
+                "SECRET_FID_UPDATE_PASSWORD": "UFNCOUAZR06CFox72W0v9w==",
+                "ENABLE_TRIAL_HOURS": "0",
+                "FIREBASE_PROJECT_ID": "sonbn-225617",
+                "FIREBASE_PRIVATE_KEY_ID": "c49105bc2163546f30d2fcbb4a0b635df0f8b703",
+                "FIREBASE_PRIVATE_KEY": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuZPcL09x1czZj\nNRI+Mtaq19hBJdhZkSv3oxwkwk65MlSuvFne1SCITzcvI6LwEDbB7KvIUOB7Vj3W\nstFCn32WPb9Kvj155fcAnMiVqdzCnYCfPPi+sS+2kmKmoK7bjXjA1PSx15/xg+r/\nivHB6tYnT/CngrslP5K070vxoL9Jwqc2VDFKQdbZOyU6af7Nzs4e587qVHy0Vnfn\nXzRnyDJwXb/jPRRcXrhiXbie8zIvC0xGhfTLG55RNZSAi3N9Pe1z45FpigeCkOA7\nlzzgm27E61OXjo0sTdHLJMjJ+8bxcUvxB04CCThYrW9ccsEJIEsFdzlr9cds8eiF\nghUz5L31AgMBAAECggEAH2x/+3icc+ljtnKcq+p7NeOYyvxnxJPdCU0xyAnfJ43D\nJo034Ggk6YrklbDlLj6trznXJkw0duTuVZ55CHk2pvjPXEd1Sl6+qDSYDCfEaKj6\nwTa6V5oTz+EGt6GigFs4k/6LbPQ+lMVBdfRyZY/MMN89rOFomWigJcwssghWD5Mg\naKrV/IEqSo8w8kktCDsNkn43ZDXMuj8IRWaf4gEXXNd/awcSaR56g4wFT5C0KkuR\n+M/NYX0yUAzPT7MMiNCjvmvV1NkQzEpzxsgtjODyH5KuZLO8mkNOO0W4QMRaVejK\nYj+IntUxXih5TEYtDBJdc7ytYA8nP0meSrxiZPCQ4QKBgQDWX8pjlOCmAT8in7fG\nU2cjhgbAwqU/4Wp2H/AaKMz4AJ8DyFEsQPsa+nJkOC3POl+Jnaq2Ig98hBq91EFE\nu8fF1ky1m0d2iGOvzgS3xLohV+gY57vYs003a9cARSjJQTDTJoY/PcpBU6gVSTjt\nD5zukSWWO15esvbP8UNiDU907QKBgQDQQddKIpID0tucmN9eqqi/yWvt9BBsUfvt\n6YlON5bvpcVGqXfJqplR9vEOTXNL3khsnB1LbC8EUDD8bPso7VtC7dSBpvWYFH0Y\nHxj71xV16Oim+9McObQW29NVF7Qpfquvz1cXV+E5JxpOEhwqP86jiRsMglRDtkFM\nusZAfJqUKQKBgFXtTXV+7lD7/O+G76XKNnQxu7E2FAC3/PFeOeJyaj4aGaLtf0Pq\nw/v7WTC8p/gBYNwLW6rnmieB2Cow0vyW/Ctbi6HbnNhxMOv9+zwh2a2Vy813zX69\n1/yX+DT+g6uvur9YGMVuogxvWNc3Y176PCAQA+3k3B2/RFjzTtwVk7y9AoGAN2gM\n+zBPYK0MuJEDfJAy7TONf3VbmTYGrLlhSmoHwiJ8ZdxYflLhD6l/YKrCbgDpi9vM\n/2/84kzje4UTHURo71mPHB9rX9azoWNEplwG3aPloeeFtxCzFRHPG+h+ijulOdUT\n+qXqyeXZXcP7slHfjCrCA4X5HTq0DNH0RNvh1GECgYEAzXfGlJ7qK2P31YC5Va0A\nymGlm9qRDSgcJ8bk/Rs3ucnGG5Q7/ZbpWbXG5ktD1jIAQ7Q1m1vQblkvyOOPwGT0\nG5meDCi4oUnpeUeMajVRsPOn+JfZvSSxd/LQe873kemc6lGvcCQEvoiRQdeZtyMV\nza0/RyMOXBBCAWHvng81VJ8=\n-----END PRIVATE KEY-----\n",
+                "FIREBASE_CLIENT_ID": "117679818978184064877",
+                "FIREBASE_CLIENT_CERT_URL": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ju5qr%40sonbn-225617.iam.gserviceaccount.com"
+            },
+        },
+        {
+            "name": "Python: Django Debug Single Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "test",
+                "apps.practices.tests.practice_content_edit_by_category.PracticesByCategoryTests.test_filter_practice_program_questions_by_practice_categories",
+                "--noinput",
+                // "--keepdb"
+
+                // "`echo -n ${relativeFileDirname} | tr \/ .`.${fileBasenameNoExtension}"
+            ],
+            "django": true,
+            "justMyCode": true,
+            "env": {
+                // "AUTHORIZATION_ISSUER": "https://fid.ftech.ai/eclass",
+                "AWS_ACCESS_KEY_ID": "eclass",
+                "SECRET_FID_UPDATE_PASSWORD": "UFNCOUAZR06CFox72W0v9w==",
+                "AWS_SECRET_ACCESS_KEY": "s3EclassympQQCVpqY",
+                "AWS_STORAGE_BUCKET_NAME": "eclass-prod",
+                "AWS_S3_ENDPOINT_URL": "https://minio.dev.ftech.ai",
+                "ENABLE_TRIAL_HOURS": "0",
+                "FIREBASE_PROJECT_ID": "sonbn-225617",
+                "FIREBASE_PRIVATE_KEY_ID": "c49105bc2163546f30d2fcbb4a0b635df0f8b703",
+                "FIREBASE_PRIVATE_KEY": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCuZPcL09x1czZj\nNRI+Mtaq19hBJdhZkSv3oxwkwk65MlSuvFne1SCITzcvI6LwEDbB7KvIUOB7Vj3W\nstFCn32WPb9Kvj155fcAnMiVqdzCnYCfPPi+sS+2kmKmoK7bjXjA1PSx15/xg+r/\nivHB6tYnT/CngrslP5K070vxoL9Jwqc2VDFKQdbZOyU6af7Nzs4e587qVHy0Vnfn\nXzRnyDJwXb/jPRRcXrhiXbie8zIvC0xGhfTLG55RNZSAi3N9Pe1z45FpigeCkOA7\nlzzgm27E61OXjo0sTdHLJMjJ+8bxcUvxB04CCThYrW9ccsEJIEsFdzlr9cds8eiF\nghUz5L31AgMBAAECggEAH2x/+3icc+ljtnKcq+p7NeOYyvxnxJPdCU0xyAnfJ43D\nJo034Ggk6YrklbDlLj6trznXJkw0duTuVZ55CHk2pvjPXEd1Sl6+qDSYDCfEaKj6\nwTa6V5oTz+EGt6GigFs4k/6LbPQ+lMVBdfRyZY/MMN89rOFomWigJcwssghWD5Mg\naKrV/IEqSo8w8kktCDsNkn43ZDXMuj8IRWaf4gEXXNd/awcSaR56g4wFT5C0KkuR\n+M/NYX0yUAzPT7MMiNCjvmvV1NkQzEpzxsgtjODyH5KuZLO8mkNOO0W4QMRaVejK\nYj+IntUxXih5TEYtDBJdc7ytYA8nP0meSrxiZPCQ4QKBgQDWX8pjlOCmAT8in7fG\nU2cjhgbAwqU/4Wp2H/AaKMz4AJ8DyFEsQPsa+nJkOC3POl+Jnaq2Ig98hBq91EFE\nu8fF1ky1m0d2iGOvzgS3xLohV+gY57vYs003a9cARSjJQTDTJoY/PcpBU6gVSTjt\nD5zukSWWO15esvbP8UNiDU907QKBgQDQQddKIpID0tucmN9eqqi/yWvt9BBsUfvt\n6YlON5bvpcVGqXfJqplR9vEOTXNL3khsnB1LbC8EUDD8bPso7VtC7dSBpvWYFH0Y\nHxj71xV16Oim+9McObQW29NVF7Qpfquvz1cXV+E5JxpOEhwqP86jiRsMglRDtkFM\nusZAfJqUKQKBgFXtTXV+7lD7/O+G76XKNnQxu7E2FAC3/PFeOeJyaj4aGaLtf0Pq\nw/v7WTC8p/gBYNwLW6rnmieB2Cow0vyW/Ctbi6HbnNhxMOv9+zwh2a2Vy813zX69\n1/yX+DT+g6uvur9YGMVuogxvWNc3Y176PCAQA+3k3B2/RFjzTtwVk7y9AoGAN2gM\n+zBPYK0MuJEDfJAy7TONf3VbmTYGrLlhSmoHwiJ8ZdxYflLhD6l/YKrCbgDpi9vM\n/2/84kzje4UTHURo71mPHB9rX9azoWNEplwG3aPloeeFtxCzFRHPG+h+ijulOdUT\n+qXqyeXZXcP7slHfjCrCA4X5HTq0DNH0RNvh1GECgYEAzXfGlJ7qK2P31YC5Va0A\nymGlm9qRDSgcJ8bk/Rs3ucnGG5Q7/ZbpWbXG5ktD1jIAQ7Q1m1vQblkvyOOPwGT0\nG5meDCi4oUnpeUeMajVRsPOn+JfZvSSxd/LQe873kemc6lGvcCQEvoiRQdeZtyMV\nza0/RyMOXBBCAWHvng81VJ8=\n-----END PRIVATE KEY-----\n",
+                "FIREBASE_CLIENT_ID": "117679818978184064877",
+                "FIREBASE_CLIENT_CERT_URL": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ju5qr%40sonbn-225617.iam.gserviceaccount.com",
+                "OIDC_RP_IDP_SIGN_KEY": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtALXsx/24o5WBHSgi3PC\nFH2MMVcuG/AmvUYb+AblUVLF66Fz2WL1+g8y42jArHPL6Hc+JkKIl4rZ8MXeEhAP\nEy/NIKRCiuMkiJ0ZhcVSanicX1hoaLE6kQB1M4/rFfR3v9XeGJ9DXSwrznUV6lmh\nedWqEHu05K3AHWI6dz/P9bUZLcuD2SHaMaMhKiwM9n75RL65ped2sKgGRpEFZRTW\neoRWtw2pMAiaPzSv36BFL+8m28RpMDln1oPSeAwxzi7Y2/djMWR5nCj2O1L2Vhw4\n7/4uOXBXSkowxoauRa81ZotoxKc9uutx1iA8FnPH9xYSa6kI2a+loFBN9/WgsmXU\nrQIDAQAB\n-----END PUBLIC KEY-----"         
+            },
+        },
+    ]
+}
