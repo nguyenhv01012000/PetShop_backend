@@ -16,3 +16,4 @@ urllib3==1.25.11
 chardet==3.0.4
 apns2==0.7.2
 ipython==7.16.1
+django-rest-knox==4.1.0
