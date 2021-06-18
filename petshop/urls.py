@@ -13,10 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from products.views import CategoryViewSet, ProductViewSet
-from news.views import NewsViewSet
-from chat.views import ChatViewSet
-from accounts.views import RegisterAPI,LoginAPI, UserViewSet
+from apps.products.views import CategoryViewSet, ProductViewSet
+from apps.news.views import NewsViewSet
+# from chat.views import ChatViewSet
+from apps.accounts.views import RegisterAPI,LoginAPI, UserViewSet
 from django.contrib import admin
 from django.urls import path, include
 from knox import views as knox_views
@@ -24,9 +24,9 @@ from rest_framework.routers import SimpleRouter
 
 api_router = SimpleRouter(trailing_slash=False)
 
-# users
-# api_router.register("users", UserViewSet, basename="users")
-api_router.register("chat", ChatViewSet, basename="chat")
+#users
+api_router.register("users", UserViewSet, basename="users")
+# api_router.register("chat", ChatViewSet, basename="chat")
 api_router.register("news", NewsViewSet, basename="news")
 api_router.register("user", UserViewSet, basename="user")
 api_router.register("product", ProductViewSet, basename="product")
@@ -42,6 +42,10 @@ urlpatterns = [
     path('api/login/', LoginAPI.as_view(), name='login'),
     path('api/logout/', knox_views.LogoutView.as_view(), name='logout'),
     path('api/logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
+    path('chat/', include('apps.chatbot.urls', namespace='chatbot')),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 from django.conf import settings

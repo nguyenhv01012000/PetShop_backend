@@ -17,3 +17,10 @@ chardet==3.0.4
 apns2==0.7.2
 ipython==7.16.1
 django-rest-knox==4.1.0
+channels==0.4.1
+channels_redis==3.3.4
+django-rest-auth == 0.9.5
+django-allauth == 0.44.0
+django-cors-headers == 3.7.0
+django-cors-headers == 3.7.0
+

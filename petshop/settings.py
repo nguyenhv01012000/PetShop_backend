@@ -37,20 +37,33 @@ MEDIA_URL = '/media/'
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'django_filters',
-    'rest_framework.authtoken',
     'knox',
-    'chat',
-    'news',
-    'accounts',
-    'products',
+    
+    'apps.news',
+    'apps.accounts',
+    'apps.products',
+    'apps.chatbot',
+
+    'rest_auth',
+    'rest_auth.registration',
+    'rest_framework.authtoken',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'corsheaders',
+    
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'petshop.urls'
@@ -81,18 +95,41 @@ TEMPLATES = [
     },
 ]
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         # 'rest_framework.authentication.BasicAuthentication',
+#         # 'rest_framework.authentication.SessionAuthentication',
+#         'knox.auth.TokenAuthentication',
+#     ],
+#     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+# }
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
-        'knox.auth.TokenAuthentication',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAdminUser',
+    #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 
 WSGI_APPLICATION = 'petshop.wsgi.application'
+#channels
+ASGI_APPLICATION = 'petshop.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -142,3 +179,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# authentication settings
+
+SITE_ID = 1
+
+
+CORS_ORIGIN_WHITELIST = ['http://localhost:1234','http://localhost:3000']
+
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
