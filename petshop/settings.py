@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.products',
     'apps.chatbot',
+    'apps.order',
 
     'rest_auth',
     'rest_auth.registration',
