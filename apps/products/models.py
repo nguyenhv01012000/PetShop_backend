@@ -1,8 +1,12 @@
 from django.db import models
 
 # Create your models here.
+class Category(models.Model):
+    cateName = models.CharField(max_length=140, default='SOME STRING')
+
 class Product(models.Model):
     productName = models.TextField(blank=True, null=True)
+    # category = models.ForeignKey(Category,related_name='products', on_delete=models.CASCADE)
     productSale = models.IntegerField(default=0)
     productSold = models.IntegerField(default=0)
     productDate = models.DateTimeField(auto_now=True)
@@ -19,5 +23,3 @@ class Product(models.Model):
     )
 
 
-class Category(models.Model):
-    cateName = models.TextField(blank=True, null=True)

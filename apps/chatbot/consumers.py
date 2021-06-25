@@ -4,6 +4,7 @@ from channels.generic.websocket import WebsocketConsumer
 import json
 from .models import Message, Chat, Contact
 from .utils import get_last_10_messages, get_user_contact, get_current_chat
+from .chatbot import chatbot
 
 User = get_user_model()
 
@@ -25,10 +26,17 @@ class ChatConsumer(WebsocketConsumer):
         current_chat = get_current_chat(data['chatId'])
         current_chat.messages.add(message)
         current_chat.save()
-        content = {
-            'command': 'new_message',
-            'message': self.message_to_json(message)
-        }
+        if data['from'] != 'admin':
+            content = {
+                'command': 'new_message',
+                'message': self.message_to_json(message),
+                'result': str(chatbot.get_response(data['message']))
+            }
+        else:
+            content = {
+                'command': 'new_message',
+                'message': self.message_to_json(message),
+            }
         return self.send_chat_message(content)
 
     def messages_to_json(self, messages):
@@ -76,7 +84,7 @@ class ChatConsumer(WebsocketConsumer):
             self.room_group_name,
             {
                 'type': 'chat_message',
-                'message': message
+                'message': message,
             }
         )
 

@@ -10,7 +10,9 @@ from rest_framework.generics import (
 from .models import Chat, Contact
 from .utils import get_user_contact
 from .serializers import ChatSerializer
-
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
 User = get_user_model()
 
 #Used for read-only endpoints to represent a collection of model instances.
@@ -18,6 +20,12 @@ User = get_user_model()
 class ChatListView(ListAPIView):
     serializer_class = ChatSerializer
     permission_classes = (permissions.AllowAny, )
+
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(60*60))
+    def dispatch(self, *args, **kwargs):
+        return super(ChatListView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         queryset = Chat.objects.all()

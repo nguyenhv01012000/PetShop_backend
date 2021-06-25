@@ -17,7 +17,6 @@ class ChatSerializer(serializers.ModelSerializer):
         read_only = ('id')
     
     def create(self, validated_data):
-        print(validated_data)
         participants = validated_data.pop('participants')
         #check your list_friend
         check = []
