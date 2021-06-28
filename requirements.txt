@@ -25,4 +25,5 @@ django-cors-headers == 3.7.0
 django-cors-headers == 3.7.0
 django-redis
 chatterbot==1.0.4
+celery
 

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'apps.products',
     'apps.chatbot',
     'apps.order',
+    'apps.email',
 
     'rest_auth',
     'rest_auth.registration',
@@ -132,7 +133,11 @@ CHANNEL_LAYERS = {
         },
     },
 }
-
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels.layers.InMemoryChannelLayer"
+#     }
+# }
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -209,3 +214,16 @@ CORS_ORIGIN_WHITELIST = ['http://localhost:1234','http://localhost:3000']
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# gmail_send/settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nguyenvklxxx@gmail.com'
+EMAIL_HOST_PASSWORD = 'sdeslpytkxpvuyvk'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'nguyenvklxxx@gmail.com'
+
+# celery connect redis
+# CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/10")
+# CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/10")
