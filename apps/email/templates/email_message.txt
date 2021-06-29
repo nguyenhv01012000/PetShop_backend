@@ -1,4 +1,5 @@
-Hello,
-Thanks for accessing this website – I hope you found it helpful.
+Hello {{name|safe}}
+You think about the product: {{review|safe}}
+Thanks for your review  – I hope you found it helpful.
 
 Thank you!

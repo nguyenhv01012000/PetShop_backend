@@ -14,10 +14,10 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     #filterset_class = NewsFilter
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60*60))
-    def dispatch(self, *args, **kwargs):
-        return super(ProductViewSet, self).dispatch(*args, **kwargs)
+    # @method_decorator(vary_on_cookie)
+    # @method_decorator(cache_page(60*60))
+    # def dispatch(self, *args, **kwargs):
+    #     return super(ProductViewSet, self).dispatch(*args, **kwargs)
     # def get_queryset(self):
     #     queryset = self.queryset.all()
     #     user = self.request.user

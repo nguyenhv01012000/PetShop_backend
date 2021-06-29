@@ -37,6 +37,7 @@ MEDIA_URL = '/media/'
 # Application definition
 
 INSTALLED_APPS = [
+    'clearcache',
     'channels',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -227,3 +228,9 @@ DEFAULT_FROM_EMAIL = 'nguyenvklxxx@gmail.com'
 # celery connect redis
 # CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/10")
 # CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/10")
+
+
+# MIDDLEWARE = [
+#     "media.nguyen.Software.eclass-api.venv.lib.python3.8.site-packages.FtechCache.customcachemidleware.MyUpdateCacheMiddleware"
+#     "media.nguyen.Software.eclass-api.venv.lib.python3.8.site-packages.FtechCache.customcachemidleware.MyFtechCacheMiddleware"
+# ]

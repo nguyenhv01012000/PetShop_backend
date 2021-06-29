@@ -20,23 +20,23 @@ class ChatConsumer(WebsocketConsumer):
 
     def new_message(self, data):
         user_contact = get_user_contact(data['from'])
-        message = Message.objects.create(
-            contact=user_contact, 
-            content=data['message'])
+        if data['from'] == 'chatbot':
+            user_contact = get_user_contact('admin')
+            message = Message.objects.create(
+                contact=user_contact, 
+                content=str(chatbot.get_response(data['message'])))
+        else:
+            user_contact = get_user_contact(data['from'])
+            message = Message.objects.create(
+                contact=user_contact, 
+                content=data['message'])
         current_chat = get_current_chat(data['chatId'])
         current_chat.messages.add(message)
         current_chat.save()
-        if data['from'] != 'admin':
-            content = {
-                'command': 'new_message',
-                'message': self.message_to_json(message),
-                'result': str(chatbot.get_response(data['message']))
-            }
-        else:
-            content = {
-                'command': 'new_message',
-                'message': self.message_to_json(message),
-            }
+        content = {
+            'command': 'new_message',
+            'message': self.message_to_json(message),
+        }
         return self.send_chat_message(content)
 
     def messages_to_json(self, messages):

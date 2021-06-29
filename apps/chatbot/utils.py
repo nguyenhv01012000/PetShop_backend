@@ -12,6 +12,9 @@ def get_last_10_messages(chatId):
 
 def get_user_contact(username):
     user = get_object_or_404(User, username=username)
+    if Contact.objects.filter(user=user).count() == 0:
+        contact = Contact(user=user)
+        contact.save()
     return get_object_or_404(Contact, user=user)
 
 

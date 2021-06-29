@@ -18,16 +18,6 @@ class ChatSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         participants = validated_data.pop('participants')
-        #check your list_friend
-        check = []
-        for username in participants:        
-            contact = get_user_contact(username)
-            for friend in contact.friends.all():
-                check.append(friend.user.username)
-            for participant in participants:
-                if check.count(participant) == 0:
-                    raise APIException("The person is not on your friends list")
-            break
         #create Chat()
         chat = Chat()
         chat.save()    

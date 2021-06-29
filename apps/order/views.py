@@ -15,10 +15,10 @@ class OrderViewSet(ModelViewSet):
     serializer_class = OrderSerializer
     #filterset_class = OrderFilter
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60*60))
-    def dispatch(self, *args, **kwargs):
-        return super(OrderViewSet, self).dispatch(*args, **kwargs)
+    # @method_decorator(vary_on_cookie)
+    # @method_decorator(cache_page(60*60))
+    # def dispatch(self, *args, **kwargs):
+    #     return super(OrderViewSet, self).dispatch(*args, **kwargs)
     # def get_queryset(self):
     #     queryset = self.queryset.all()
     #     user = self.request.user

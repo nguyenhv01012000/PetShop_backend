@@ -7,6 +7,6 @@ logger = get_task_logger(__name__)
 
 
 @task(name="send_review_email_task")
-def send_review_email_task(email):
+def send_review_email_task(name,email,review):
     logger.info("Sent review email")
-    return send_review_email(email)
+    return send_review_email(name,email,review)

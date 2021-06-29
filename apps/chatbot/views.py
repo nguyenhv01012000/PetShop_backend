@@ -22,10 +22,10 @@ class ChatListView(ListAPIView):
     permission_classes = (permissions.AllowAny, )
 
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60*60))
-    def dispatch(self, *args, **kwargs):
-        return super(ChatListView, self).dispatch(*args, **kwargs)
+    # @method_decorator(vary_on_cookie)
+    # @method_decorator(cache_page(60*60))
+    # def dispatch(self, *args, **kwargs):
+    #     return super(ChatListView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         queryset = Chat.objects.all()

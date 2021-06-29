@@ -37,6 +37,7 @@ api_router.register("order", OrderViewSet, basename="order")
 
 
 urlpatterns = [
+    path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path(r"api/", include(api_router.urls)),
     path('api/register/', RegisterAPI.as_view(), name='register'),
